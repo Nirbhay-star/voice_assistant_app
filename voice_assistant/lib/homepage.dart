@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:voice_assistant/constraint.dart';
 import 'package:voice_assistant/featurebox.dart';
+import 'package:speech_to_text/speech_recognition_result.dart';
+import 'package:speech_to_text/speech_to_text.dart';
 
 class myhomepage extends StatefulWidget {
   const myhomepage({super.key});
@@ -10,15 +12,18 @@ class myhomepage extends StatefulWidget {
 }
 
 class _myhomepageState extends State<myhomepage> {
+  final speechToText = SpeechToText();
 
   @override
   void initState() {
     super.initState();
     initSpeechToText();
+    
   }
 
   Future<void> initSpeechToText() async {
-
+    await speechToText.initialize();
+      setState(() {});
   }
 
   @override
